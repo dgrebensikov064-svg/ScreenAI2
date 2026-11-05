@@ -14,6 +14,7 @@ jobs:
           gradle-version: 8.7
       - run: yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses || true
       - run: unzip -q ScreenAI*.zip
+      - run: sed -i 's/api\.utf8Text/api.getUTF8Text()/' ScreenAI/app/src/main/java/com/example/screenai/OverlayService.kt
       - run: |
           mkdir -p ScreenAI/app/src/main/assets/tessdata
           for l in rus eng; do
